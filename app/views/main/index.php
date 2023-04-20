@@ -1,12 +1,10 @@
-<p>Главная страница</p>
-
 <?php 
 	//Верификация запроса
 	$_SESSION['oauth2state'] = bin2hex(random_bytes(16));
 	$clientParams = $vars['clientParams'];
 ?>
-
-	<div>
+	<h2 class="mt-50 mb-10">Чтобы продолжить, пожалуйста, дайте интеграции доступ к вашему аккаунту AmoCRM</h2>
+	<div class="row justify-content-center">
 		<script
 			class="amocrm_oauth"
 			charset="utf-8"
@@ -19,12 +17,10 @@
 			data-error-callback="handleOauthError"
 			src="https://www.amocrm.ru/auth/button.min.js"
 		></script>
-		</div>
+	</div>
 	<script>
 	handleOauthError = function(event) {
 		alert('ID клиента - ' + event.client_id + ' Ошибка - ' + event.error);
 	}
 	</script>
-<?php
-	die;
-?>
+
