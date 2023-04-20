@@ -2,8 +2,6 @@
 
 namespace App\Lib;
 
-use AmoCRM\OAuth2\Client\Provider\AmoCRM;
-
 class AmoTokenManager
 {
     public function getToken()

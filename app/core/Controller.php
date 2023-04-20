@@ -25,4 +25,11 @@ abstract class Controller {
 			return new $path;
 		}
 	}
+
+	protected function sendResponse(array $response, $statusCode = 404)
+	{
+		http_response_code($statusCode);
+		echo json_encode($response);
+		die();
+	}
 }

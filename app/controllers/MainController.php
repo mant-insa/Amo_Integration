@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Core\Controller;
 use App\Lib\AmoService;
+use App\Lib\AmoClientParams;
 
 class MainController extends Controller 
 {
@@ -15,7 +16,7 @@ class MainController extends Controller
 		if(!$result)
 		{
 			$vars = [
-				'clientParams' 	=> $amoService->getClientParams(),
+				'clientParams' 	=> AmoClientParams::getClientParams(),
 			];
 	
 			$this->view->render('main/index', $vars);
