@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core;
+namespace App\Controllers;
 
 use App\Core\Controller;
 use App\Lib\AmoService;

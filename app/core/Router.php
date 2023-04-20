@@ -50,13 +50,13 @@ class Router {
                     $controller = new $classPath($this->params);
                     $controller->$action();
                 } else {
-                    //Hosting will take care of 404-error
+                    View::errorCode("404");
                 }
             } else {
-                //Hosting will take care of 404-error
+                View::errorCode("404");
             }
         } else {
-            //Hosting will take care of 404-error
+            View::errorCode("404");
         }
     }
 

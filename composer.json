@@ -3,5 +3,10 @@
     "description": "Test integration with AmoCrm",
     "require": {
         "amocrm/oauth2-amocrm": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
     }
 }
