@@ -2,7 +2,8 @@
     "name": "petre/amo-integration",
     "description": "Test integration with AmoCrm",
     "require": {
-        "amocrm/oauth2-amocrm": "^2.0"
+        "amocrm/oauth2-amocrm": "^2.0",
+        "amocrm/amocrm-api-library": "^0.13.0"
     },
     "autoload": {
         "psr-4": {
