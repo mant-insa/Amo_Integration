@@ -21,8 +21,7 @@ class AmoTokenManager
                 'expires' => $accessToken['expires'],
                 'baseDomain' => $accessToken['baseDomain'],
             ]);
-        } 
-        else 
+        } else 
         {
             return false;
         }
@@ -40,8 +39,7 @@ class AmoTokenManager
             ];
 
             $_SESSION['accessToken'] = $data;
-        } 
-        else
+        } else
         {
             //+LOGS
             exit('Invalid access token ' . var_export($accessToken, true));
