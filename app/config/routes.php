@@ -7,7 +7,7 @@ return [
 		'requestType'	=> 'GET'
 	],
 	'formHandle' => [
-		'controller' 	=> 'FormController',
+		'controller' 	=> 'Form',
 		'action' 		=> 'index',
 		'requestType'	=> 'POST'
 	]
