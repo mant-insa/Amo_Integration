@@ -1,6 +1,6 @@
 <?php
 
-namespace application\lib;
+namespace App\Lib;
 
 use PDO;
 
@@ -9,7 +9,7 @@ class Db {
 	protected $db;
 	
 	public function __construct() {
-		$config = require 'application/config/db.php';
+		$config = require 'app/config/db.php';
 		$this->db = new PDO('mysql:host='.$config['host'].';dbname='.$config['name'].'', $config['user'], $config['password']);
 	}
 
@@ -33,6 +33,4 @@ class Db {
 		$result = $this->query($sql, $params);
 		return $result->fetchColumn();
 	}
-
-
 }

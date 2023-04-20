@@ -2,7 +2,7 @@
 
 namespace App\Core;
 
-use application\lib\Db;
+use App\Lib\Db;
 
 abstract class Model {
 
