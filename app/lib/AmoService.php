@@ -12,8 +12,8 @@ class AmoService
 
     public function __construct()
     {
-        $clientParams = $this->initClientParams();
-        $this->serviceProvider = new AmoCRM($clientParams);
+        $this->clientParams = $this->initClientParams();
+        $this->serviceProvider = new AmoCRM($this->clientParams);
         $this->tokenManager = new AmoTokenManager();
     }
 
@@ -45,8 +45,8 @@ class AmoService
             } 
             catch (\Exception $e) 
             {
-                //+LOGS
-                die((string) $e->getMessage());
+                SimpleLogger::log("Exception in AmoService in method isCurrentUserAuthorized. Message: " . $e->getMessage());
+                die("Что-то пошло не так. Пожалуйста, обратитесь к администратору.");
             }
         }
 
@@ -55,13 +55,16 @@ class AmoService
 
     private function isQueryParamsValid()
     {
-        if (isset($_GET['code']))
+        if (isset($_GET['code']) && isset($_GET['referer']))
         {
             if (empty($_GET['state']) || empty($_SESSION['oauth2state']) || ($_GET['state'] !== $_SESSION['oauth2state'])) 
             {
                 unset($_SESSION['oauth2state']);
+                echo "wrong state";
                 return false;
             }
+
+            $this->serviceProvider->setBaseDomain($_GET['referer']);
 
             try 
             {
@@ -81,13 +84,11 @@ class AmoService
             } 
             catch (\Exception $e) 
             {
-                //+LOGS
-                die((string) $e->getMessage());
+                SimpleLogger::log("Exception in AmoService in method isQueryParamsValid. Message: " . $e->getMessage());
+                die("Что-то пошло не так. Пожалуйста, обратитесь к администратору.");
             }
-
             return true;
         }
-
         return false;
     }
 
@@ -109,8 +110,8 @@ class AmoService
     private function initClientParams()
     {
         return [
-			'clientId' => 'a0638859-d4ec-455f-bca6-a5f8b016a2b4',
-			'clientSecret' => 'Mj2EH4SRXO4b6hvvmmaHNcyeyHHjTh1b1B8gWwDqWfwNBPyMdnL5BcRPUEbYB23h',
+			'clientId' => '822173d9-ffa1-4b37-8842-b843676069af',
+			'clientSecret' => '9yUKzzIeDqhNqHTOWZr3BjdCVmPnpXz0MaCjdDuSwPGGnyR7rn9j4h6g9XrgLQrV',
 			'redirectUri' => 'http://f0808190.xsph.ru/',
 		];
     }

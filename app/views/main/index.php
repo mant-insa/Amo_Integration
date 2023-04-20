@@ -3,6 +3,7 @@
 <?php 
 	//Верификация запроса
 	$_SESSION['oauth2state'] = bin2hex(random_bytes(16));
+	$clientParams = $vars['clientParams'];
 ?>
 
 	<div>
@@ -18,7 +19,7 @@
 			data-error-callback="handleOauthError"
 			src="https://www.amocrm.ru/auth/button.min.js"
 		></script>
-		</div>';
+		</div>
 	<script>
 	handleOauthError = function(event) {
 		alert('ID клиента - ' + event.client_id + ' Ошибка - ' + event.error);

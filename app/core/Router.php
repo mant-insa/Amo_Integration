@@ -25,7 +25,8 @@ class Router {
 
     public function match() 
     {
-        $url = trim($_SERVER['REQUEST_URI'], '/');
+        $url = strtok($_SERVER["REQUEST_URI"], '?');
+        $url = trim($url, '/');
         foreach ($this->routes as $route => $params) 
         {
             if (preg_match($route, $url, $matches) && $params['requestType'] == $_SERVER['REQUEST_METHOD']) 
