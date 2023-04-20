@@ -6,10 +6,13 @@ class AmoClientParams
 {
     public static function getClientParams()
     {
+        $dotenv = \Dotenv\Dotenv::createImmutable(APP_ROOT);
+        $dotenv->load();
+
         return [
-			'clientId' => '822173d9-ffa1-4b37-8842-b843676069af',
-			'clientSecret' => '9yUKzzIeDqhNqHTOWZr3BjdCVmPnpXz0MaCjdDuSwPGGnyR7rn9j4h6g9XrgLQrV',
-			'redirectUri' => 'http://f0808190.xsph.ru/',
+			'clientId' => $_ENV['CLIENT_ID'],
+			'clientSecret' => $_ENV['CLIENT_SECRET'],
+			'redirectUri' => $_ENV['REDIRECT_URL'],
 		];
     }
 
